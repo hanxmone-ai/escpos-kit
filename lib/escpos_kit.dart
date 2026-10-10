@@ -24,5 +24,5 @@ export 'src/commands.dart'
 export 'src/encoding.dart';
 export 'src/image.dart';
 export 'src/layout.dart' show autoWidths, layoutRow, textWidth, wrapText;
-export 'src/network.dart';
+export 'src/network_stub.dart' if (dart.library.io) 'src/network.dart';
 export 'src/receipt.dart';

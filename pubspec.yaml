@@ -2,7 +2,7 @@ name: escpos_kit
 description: >-
   Build ESC/POS receipts in pure Dart (text styles, Chinese GBK, barcodes, QR
   codes, images) and send them to thermal printers over the network or Bluetooth.
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/hanxmone-ai/escpos-kit
 issue_tracker: https://github.com/hanxmone-ai/escpos-kit/issues
 topics:

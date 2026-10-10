@@ -4,7 +4,7 @@
 
 Build ESC/POS receipts in pure Dart and send them to thermal receipt printers.
 
-- **No Flutter dependency, no native code.** Works in Flutter apps, on servers and in command-line tools.
+- **No Flutter dependency, no native code.** Works in Flutter apps (including web), on servers and in command-line tools. `NetworkPrinter` needs `dart:io`, so it is not available on the web.
 - **Chinese out of the box.** A built-in GBK table (no extra packages) plus Windows-1252 for Western European text.
 - **Columns that line up.** Item and price rows are padded by display width, so Chinese names (two columns per character) align with Latin ones, and long names wrap inside their own column.
 - **Barcodes, QR codes and images.** Images come from raw RGBA pixels, scaled to the paper and dithered.

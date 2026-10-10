@@ -1,3 +1,7 @@
+## 0.1.1
+
+- Compiles for the web: `NetworkPrinter` is replaced by a stub that throws `UnsupportedError` where `dart:io` is missing.
+
 ## 0.1.0
 
 - `Receipt` builder: text styles, aligned item/price rows with wrapping, dividers, barcodes, QR codes, raster images, cutting and cash drawer.

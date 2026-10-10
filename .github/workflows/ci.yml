@@ -27,6 +27,12 @@ jobs:
       - name: Test
         run: dart test
 
+      - name: Compiles for the web
+        if: matrix.sdk == 'stable'
+        run: |
+          printf "import 'package:escpos_kit/escpos_kit.dart';\nvoid main() => print(Receipt().bytes.length);\n" > web_check.dart
+          dart compile js -o /tmp/web_check.js web_check.dart
+
       - name: Run the example
         run: dart run example/main.dart && test -s receipt.bin
 
