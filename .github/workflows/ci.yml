@@ -1,0 +1,35 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sdk: ['3.3.0', stable]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.sdk }}
+
+      - run: dart pub get
+
+      - name: Analyze
+        run: dart analyze --fatal-infos
+
+      - name: Test
+        run: dart test
+
+      - name: Run the example
+        run: dart run example/main.dart && test -s receipt.bin
+
+      - name: GBK table matches the generator
+        if: matrix.sdk == 'stable'
+        run: python3 tool/gen_gbk_table.py && git diff --exit-code lib/src/gbk_table.dart
